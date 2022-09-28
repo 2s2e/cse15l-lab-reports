@@ -1,4 +1,11 @@
-Falaf3l
+#Falaf3l
+
+##I used a big header up there, because falafel is important
+
+**This is bold text**
+
+*This is italicized text*
+
 <br>
 [Bunch of Text](https://2s2e.github.io/cse15l-lab-reports/wakeup.html)
 <br>
