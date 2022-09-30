@@ -4,10 +4,10 @@ Hello everyone welcome to my beginner's tutorial on how to log into a course-spe
 
 First, we must install VSCode to gain access to the terminal and modify your files. First, to https://code.visualstudio.com/download
 
-![alt text] (vspage.png)
+![alt text](vspage.png)
 
 Click on the download button whichever OS you are using, and follow the directions.
 
 Once installed, open it and it should look something like this: 
 
-![alt text] (vshome.png)
+![alt text](vshome.png)
