@@ -7,7 +7,7 @@
 *This is italicized text*
 
 <br>
-[Bunch of Text](https://2s2e.github.io/cse15l-lab-reports/wakeup.html)
+[Bunch of Text](https://2s2e.github.io/cse15l-lab-reports/report_w0/wakeup.html)
 <br>
 [Lab Report 0](https://2s2e.github.io/cse15l-lab-reports/lab-report-1-week-0.html)
 
