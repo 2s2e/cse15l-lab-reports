@@ -14,3 +14,4 @@
 
 [Lab Report 1](https://2s2e.github.io/cse15l-lab-reports/report_w0/lab-report-week1.html)
 
+[Lab Report 2](https://2s2e.github.io/cse15l-lab-reports/report_w3/lab-report-week3.html)
