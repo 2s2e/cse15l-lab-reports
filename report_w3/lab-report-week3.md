@@ -82,10 +82,32 @@ First we will explore the reverse in place method. This method can easily be bro
     assertArrayEquals(expected, input);
   }
 ```
-And here is the symptom:
+And here is the symptom, as shown by the JUnit output:
 
-    testReverseInPlace2(ArrayTests)
+    JUnit version 4.13.2
+    .E......
+    Time: 0.009
+    There was 1 failure:
+    1) testReverseInPlace2(ArrayTests)
     arrays first differed at element [2]; expected:<1> but was:<3>
+            at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
+            at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
+            at org.junit.Assert.internalArrayEquals(Assert.java:534)
+            at org.junit.Assert.assertArrayEquals(Assert.java:418)
+            at org.junit.Assert.assertArrayEquals(Assert.java:429)
+            at ArrayTests.testReverseInPlace2(ArrayTests.java:24)
+            ... 32 trimmed
+    Caused by: java.lang.AssertionError: expected:<1> but was:<3>
+            at org.junit.Assert.fail(Assert.java:89)
+            at org.junit.Assert.failNotEquals(Assert.java:835)
+            at org.junit.Assert.assertEquals(Assert.java:120)
+            at org.junit.Assert.assertEquals(Assert.java:146)
+            at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)
+            at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)
+            ... 38 more
+    
+    FAILURES!!!
+    Tests run: 7,  Failures: 1
 
 As it turns out, the buggy implementation overwrites the first half of the elements, and thus can't reverse the second half of the elements. As a result, instead of giving 3 2 1 as expected, 3 2 3 is returned, as shown in the symptom.
 
@@ -96,7 +118,7 @@ This is evident in line 3 of the buggy code:
       arr[i] = arr[arr.length - i - 1];
     }
   }
-  ```
+```
 
 We can fix this by swapping the elements instead:
 
@@ -141,10 +163,22 @@ public void testFilter() {
 }
 ```
 
-Here is the symptom:
+Here is the symptom, shown again, by the JUnit output:
 
-    testFilter(ListTests)
+    JUnit version 4.13.2
+    ..E
+    Time: 0.006
+    There was 1 failure:
+    1) testFilter(ListTests)
     java.lang.AssertionError: expected:<[bar, baz]> but was:<[baz, bar]>
+            at org.junit.Assert.fail(Assert.java:89)
+            at org.junit.Assert.failNotEquals(Assert.java:835)
+            at org.junit.Assert.assertEquals(Assert.java:120)
+            at org.junit.Assert.assertEquals(Assert.java:146)
+            at ListTests.testFilter(ListTests.java:28)
+    
+    FAILURES!!!
+    Tests run: 2,  Failures: 1
 
 Evidently, instead of preserving the order of the strings that made it past the filter, the order was reversed.
 
